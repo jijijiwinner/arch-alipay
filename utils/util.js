@@ -4,8 +4,7 @@ function convertToStarsArray(stars) {
   for (var i = 1; i <= 5; i++) {
     if (i <= num) {
       array.push(1);
-    }
-    else {
+    } else {
       array.push(0);
     }
   }
@@ -14,20 +13,20 @@ function convertToStarsArray(stars) {
 
 function http(url, callBack) {
   // console.log(callBack)
-   my.httpRequest({
-      url: url,
-      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      header: {
-        "Content-Type": "json"
-      },
-      success: function (res) {
-        callBack(res.data)
-      },
-      fail: function (error) {
-        // fail
-        console.log(error)
-      }
-    })
+  my.httpRequest({
+    url: url,
+    method: "GET", // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    header: {
+      "Content-Type": "json"
+    },
+    success: function(res) {
+      callBack(res.data);
+    },
+    fail: function(error) {
+      // fail
+      console.log(error);
+    }
+  });
 }
 
 function convertToCastString(casts) {
@@ -35,17 +34,17 @@ function convertToCastString(casts) {
   for (var idx in casts) {
     castsjoin = castsjoin + casts[idx].name + " / ";
   }
-  console.log(castsjoin)
+  console.log(castsjoin);
   return castsjoin.substring(0, castsjoin.length - 2);
 }
 
 function convertToCastInfos(casts) {
-  var castsArray = []
+  var castsArray = [];
   for (var idx in casts) {
     var cast = {
       img: casts[idx].avatars ? casts[idx].avatars.large : "",
       name: casts[idx].name
-    }
+    };
     castsArray.push(cast);
   }
   return castsArray;
@@ -54,6 +53,6 @@ function convertToCastInfos(casts) {
 module.exports = {
   convertToStarsArray: convertToStarsArray,
   http: http,
-  convertToCastString:convertToCastString,
-  convertToCastInfos:convertToCastInfos
-}
+  convertToCastString: convertToCastString,
+  convertToCastInfos: convertToCastInfos
+};
